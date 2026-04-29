@@ -1,0 +1,27 @@
+FIG 3 - Dependency Inversion
+
+interface Employee {
+    void doWork();
+}
+
+class Designer implements Employee {
+    public void doWork() {
+        System.out.println("Designer is creating UI design");
+    }
+}
+
+class GameDevCompany {
+    public Employee getEmployee() {
+        return new Designer();
+    }
+}
+
+class OutsourcingCompany {
+    public Employee getEmployee() {
+        return new Designer();
+    }
+}
+
+
+
+

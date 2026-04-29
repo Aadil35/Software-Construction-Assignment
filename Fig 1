@@ -1,0 +1,46 @@
+FIG 1 - Interface Segregation Principle
+interface CloudHostingProvider {
+    void createServer(String region);
+    void listServers(String region);
+}
+
+interface CDNProvider {
+    String getCDNAddress();
+}
+
+interface CloudStorageProvider {
+    void storeFile(String fileName);
+    String getFile(String fileName);
+}
+
+class Amazon implements CloudHostingProvider, CDNProvider, CloudStorageProvider {
+    public void createServer(String region) {
+        System.out.println("Amazon server created in " + region);
+    }
+
+    public void listServers(String region) {
+        System.out.println("Amazon servers listed for " + region);
+    }
+
+    public String getCDNAddress() {
+        return "cdn.amazon.com";
+    }
+
+    public void storeFile(String fileName) {
+        System.out.println("Amazon stored file: " + fileName);
+    }
+
+    public String getFile(String fileName) {
+        return "Amazon file fetched: " + fileName;
+    }
+}
+
+class Dropbox implements CloudStorageProvider {
+    public void storeFile(String fileName) {
+        System.out.println("Dropbox stored file: " + fileName);
+    }
+
+    public String getFile(String fileName) {
+        return "Dropbox file fetched: " + fileName;
+    }
+}

@@ -1,0 +1,32 @@
+FIG 4 - Open/Closed Principle
+interface Shipping {
+    double getCost();
+    String getDate();
+}
+class Ground implements Shipping {
+    public double getCost() {
+        return 1000;
+    }
+    public String getDate() {
+        return "5 days";
+    }
+}
+class Air implements Shipping {
+    public double getCost() {
+        return 5000;
+    }
+    public String getDate() {
+        return "1 day";
+    }
+}
+class Order {
+    private Shipping shipping;
+    public Order(Shipping shipping) {
+        this.shipping = shipping;
+    }
+
+    public void showShippingDetails() {
+        System.out.println("Shipping Cost: " + shipping.getCost());
+        System.out.println("Delivery Time: " + shipping.getDate());
+    }
+}

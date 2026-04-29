@@ -1,0 +1,27 @@
+MAIN METHOD
+public class Main {
+    public static void main(String[] args) {
+
+        System.out.println("===== FIG 1 =====");
+        Amazon amazon = new Amazon();
+        amazon.createServer("US-East");
+        amazon.storeFile("report.pdf");
+        System.out.println(amazon.getCDNAddress());
+
+        Dropbox dropbox = new Dropbox();
+        dropbox.storeFile("assignment.docx");
+
+        System.out.println("\n===== FIG 2 =====");
+        Transport transport = new Transport(new ElectricEngine(), new Human());
+        transport.deliver("Karachi", "Laptop");
+
+        System.out.println("\n===== FIG 3 =====");
+        GameDevCompany gameCompany = new GameDevCompany();
+        Employee emp = gameCompany.getEmployee();
+        emp.doWork();
+
+        System.out.println("\n===== FIG 4 =====");
+        Order order = new Order(new Air());
+        order.showShippingDetails();
+    }
+}

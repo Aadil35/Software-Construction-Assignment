@@ -1,0 +1,48 @@
+FIG 2 - Composition
+interface Engine {
+    void move();
+}
+
+interface Driver {
+    void navigate();
+}
+
+class CombustionEngine implements Engine {
+    public void move() {
+        System.out.println("Transport moving with combustion engine");
+    }
+}
+
+class ElectricEngine implements Engine {
+    public void move() {
+        System.out.println("Transport moving with electric engine");
+    }
+}
+
+class Human implements Driver {
+    public void navigate() {
+        System.out.println("Human is driving");
+    }
+}
+
+class Robot implements Driver {
+    public void navigate() {
+        System.out.println("Robot is driving");
+    }
+}
+
+class Transport {
+    private Engine engine;
+    private Driver driver;
+
+    public Transport(Engine engine, Driver driver) {
+        this.engine = engine;
+        this.driver = driver;
+    }
+
+    public void deliver(String destination, String cargo) {
+        engine.move();
+        driver.navigate();
+        System.out.println("Delivering " + cargo + " to " + destination);
+    }
+}
